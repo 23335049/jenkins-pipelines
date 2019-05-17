@@ -1,6 +1,6 @@
 library identifier: 'custom-lib@master', retriever: modernSCM(
         [$class: 'GitSCMSource',
-         remote: 'git@github.com:23335049/jenkins-utils.git'])
+         remote: 'https://github.com/23335049/jenkins-utils.git'])
 pipeline {
     agent any
     stages{
