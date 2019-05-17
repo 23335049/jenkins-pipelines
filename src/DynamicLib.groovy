@@ -4,7 +4,7 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
 pipeline {
     agent any
     stages{
-        stages('test') {
+        stage('test') {
             steps {
                 script {
                     log.info "woqu.this"
