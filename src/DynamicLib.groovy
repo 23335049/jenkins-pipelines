@@ -10,6 +10,7 @@ pipeline {
                     log.info "woqu.this"
                     log.warning "woqu.this"
                 }
+                error "woqu.this"
             }
         }
     }
