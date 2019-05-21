@@ -5,7 +5,7 @@ pipeline {
             args '-v /Users/wangn/.m2:/root/.m2'
         }
     }
-    stages{
+    stages {
         stage('checkout') {
             steps {
                 echo "start checkout code..."
@@ -13,8 +13,6 @@ pipeline {
                 echo "end checkout code"
             }
         }
-    }
-    stages {
         stage('test') {
             steps {
                 sh 'mvn test'
