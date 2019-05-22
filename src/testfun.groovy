@@ -7,7 +7,6 @@ pipeline {
                 script {
                     def lastCommitEmail = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%ae'")
                     echo lastCommitEmail
-                    properties([parameters([string(name: 'lastCommitEmail', value: lastCommitEmail)])])
                 }
             }
         }
