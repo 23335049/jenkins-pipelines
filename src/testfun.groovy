@@ -6,6 +6,7 @@ pipeline {
                 git branch:'deploy', url: 'https://github.com/23335049/cache-timeout.git'
                 script {
                     def lastCommitEmail = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%ae'")
+                    echo lastCommitEmail
                     properties([parameters([string(name: 'lastCommitEmail', value: lastCommitEmail)])])
                 }
             }
