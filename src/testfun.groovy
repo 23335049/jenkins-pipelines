@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    par
     stages {
         stage('checkout') {
             steps {
