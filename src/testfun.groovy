@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('checkout') {
             steps {
@@ -16,15 +16,17 @@ pipeline {
 //                         body: 'a test mail.'
 //            }
 //        }
-        stage("test_env") {
-            environment {
-                LAST_COMMIT_EMAIL = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%ae'")
-            }
-            steps {
-                script {
-                    env.properties.each {echo it}
-                }
-            }
+//        stage("test_params") {
+//            environment {
+//                LAST_COMMIT_EMAIL = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%ae'")
+//            }
+//        }
+    }
+    post {
+        always {
+            emailext to: sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%ae'"),
+                    subject: "job_name: ${JOB_NAME} build_id: ${BUILD_ID}",
+                    body: "build url :${BUILD_URL}"
         }
     }
 }
