@@ -1,8 +1,9 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-        }
+    agent any
+    tools {
+        maven 'maven-3.6.1'
+        git 'Default'
+        jdk 'jdk8'
     }
     stages {
         stage 'checkout codes', {
