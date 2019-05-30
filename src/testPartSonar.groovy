@@ -21,7 +21,7 @@ pipeline {
                 git branch: params.branch, url: GIT_URL
             }
         }
-        stage "SonarQube analysis changes from ${BASE_BRANCH}", {
+        stage "SonarQube analysis changes", {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     echo(sh (returnStdout: true, script: "git diff HEAD origin/${BASE_BRANCH} --name-only | tr '\n' ',' "))
