@@ -7,7 +7,7 @@ pipeline {
         git 'Default'
     }
     parameters {
-        string name: branch, defaultValue: 'master', description: '扫描的branch名称'
+        string name: 'branch', defaultValue: 'master', description: '扫描的branch名称', trim: true
     }
     environment {
 //        AN_ACCESS_KEY = credentials('my-prefined-secret-text')
